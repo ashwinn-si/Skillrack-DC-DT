@@ -19,10 +19,10 @@ X 928135673116 and Y 784621997.
 The sum of X and Y is 928920295113.
 '''
 
-def helper(arr):
-    arr = sorted(arr)
-    return ([arr[-2],arr[-1]])
-N , K = map(int,input().split())
-nums = list(map(int,input().split()))
-for i in range(N-K+1):
-    print(*helper(nums[i : i+K]))
+#Your code below
+N = int(input())
+num1 = int(''.join(i for i in input().split()))
+M = int(input())
+num2 = int(''.join(i for i in input().split()))
+for i in str(num1+num2):
+    print(i,end=" ")

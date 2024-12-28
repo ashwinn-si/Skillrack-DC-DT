@@ -30,3 +30,29 @@ The factor 17 occurs once.
 After sorting the factors based on the given conditions, the factors are
 1(5) 2(3) 3(3) 4(2) 6(2) 8(1) 9(1) 12(1) 17(1)
 '''
+
+import java.util.*;
+public class Hello {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        int N = sc.nextInt();
+        TreeMap <Integer,Integer> hash = new TreeMap<>();
+        for(int i = 0 ; i < N ; i++){
+            int currNum = sc.nextInt();
+            for(int num = 1 ; num < (int)(Math.pow(currNum,0.5)+1) ; num++){
+                if(currNum % num == 0){
+                    hash.put(num , hash.getOrDefault(num, 0)+1);
+                    //if 3 is a divisor of 12 then now we are checking if 4 is too a divisor
+                    if(num != (int)(currNum/num)){
+                        hash.put((int)(currNum/num) , hash.getOrDefault((int)(currNum/num), 0)+1);
+                    }
+                }
+            }
+        }
+        for(int i : hash.keySet()){
+          System.out.printf("%d(%d) ",i,hash.get(i));
+        }
+    }
+}

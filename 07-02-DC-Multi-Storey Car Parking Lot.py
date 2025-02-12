@@ -1,3 +1,4 @@
+#jagadish code
 R , C = map(int , input().split())
 
 binary_matrix = [list(map(int , input().split())) for i in range(0 , R)]

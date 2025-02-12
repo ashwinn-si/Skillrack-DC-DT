@@ -1,4 +1,3 @@
-//1 tc fail
 import java.util.*;
 public class Hello {
 
@@ -12,6 +11,7 @@ public class Hello {
 		    if(i == 0){
 		        prevNum = sc.nextInt();
 		        if(prevNum != 1){
+					flag = false;
 		            System.out.printf("%d-%d ",1,prevNum-1);
 		        }
 		    }

@@ -40,7 +40,7 @@ public class Hello {
 		    }
 		}
 		
-		if(maxN == 1){
+		if(maxN <= 1){
 		    System.out.print("-1");
 		    return;
 		}

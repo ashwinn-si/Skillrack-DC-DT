@@ -21,6 +21,7 @@ public class Hello {
 		//Your Code Here
 		Scanner sc = new Scanner(System.in);
 		int R = sc.nextInt();
+    
 		int C = sc.nextInt();
 		int minRow[] = new int[R];
 		int minCol[] = new int[C];

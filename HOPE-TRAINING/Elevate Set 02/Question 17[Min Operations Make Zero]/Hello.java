@@ -1,10 +1,10 @@
 /*
 Alternative approach 
 @jeevia solution
-initilize a set
-append every non zero element to the set
-the no of elements in the set is the no of operations required to make all the elements zero
-print(set.size())
+-> initilize a set
+-> append every non zero element to the set
+-> the no of elements in the set is the no of operations required to make all the elements zero
+-> print(set.size())
 */
 
 import java.util.*;

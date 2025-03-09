@@ -1,3 +1,33 @@
+
+/*
+The program must accept two integer matrices of equal size N*N as the input. The program must print the
+sum of integers in the largest common middle square submatrix in the given two matrices as the output. If
+there is no such common middle square submatrix, then the program must print -1 as the output.
+
+Example Input/Output 1:
+
+Input:
+4
+5 8 8 4
+7 7 9 9
+3 4 6 8
+5 1 1 4
+6 9 8 3
+8 7 9 2
+4 4 6 3
+6 7 5 1
+
+Output:
+26
+
+Explanation:
+The largest common middle submatrix is given below.
+7 9
+4 6
+The sum of integers in the above submatrix is 26 (7 + 9 + 4 + 6).
+So 26 is printed as the output
+ */
+
 import java.util.*;
 
 public class Hello {

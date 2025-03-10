@@ -18,7 +18,7 @@ Output:
 Explanation:
 Here N = 4.
 ISt integer 1234 -> 412341
-2nd integer 405 -> 54050
+2nd integer 405 -> 54050    
 3rd integer 12088 8120880
 4th integer 15 5151
 The sum of the 4 modified values is 8592422.

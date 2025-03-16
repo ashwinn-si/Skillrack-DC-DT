@@ -12,7 +12,6 @@ public class Hello {
 		        System.out.print((char)('a' + Integer.parseInt(str.substring(i,i+2)) - 1));
 		        i+=3;
 		    }else{
-		      
 		        int val = str.charAt(i) - '0';
 		        System.out.print((char)('a'+ val - 1));
 		       i++;

@@ -62,3 +62,54 @@ public class Main {
         System.out.print(infectedPerson + " " + uninfectedPerson);
     }
 }
+
+/* BFS APPROACH*/
+/*import java.util.*;
+
+public class Main {
+    static int N, noOfUninfectedPerson = 0, noOfInfectedPerson = 0;
+    static Queue<Integer> affectedPersons = new LinkedList<>();
+    static int arr[];
+
+    static void bfs(int index) {
+        if (index + 1 < N && arr[index + 1] == 1) {
+            noOfInfectedPerson++;
+            noOfUninfectedPerson--;
+            arr[index + 1] = 2;
+            affectedPersons.offer(index + 1);
+        }
+        if (index - 1 >= 0 && arr[index - 1] == 1) {
+            noOfInfectedPerson++;
+            noOfUninfectedPerson--;
+            arr[index - 1] = 2;
+            affectedPersons.offer(index - 1);
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        N = sc.nextInt();
+        sc.nextLine();
+        arr = new int[N];
+
+        for (int i = 0; i < N; i++) {
+            arr[i] = sc.nextInt();
+            if (arr[i] == 1) {
+                noOfUninfectedPerson++;
+            }
+            if (arr[i] == 2) {
+                affectedPersons.offer(i);
+            }
+        }
+
+        while (!affectedPersons.isEmpty()) {
+            int size = affectedPersons.size();
+            for (int i = 0; i < size; i++) {
+                int index = affectedPersons.poll();
+                bfs(index);
+            }
+        }
+
+        System.out.println(noOfInfectedPerson + " " + noOfUninfectedPerson);
+    }
+}*/

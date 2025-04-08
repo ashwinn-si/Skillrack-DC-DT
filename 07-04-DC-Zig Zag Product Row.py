@@ -22,6 +22,8 @@ The product of the integers in the 2nd row (left to right) and 4th row (right to
 
 '''
 
+//TODO 
+//IMP 
 R, C = map(int,input().split())
 matrix =[list(map(int,input().split())) for  i in range(R)]
 A, B = map(int,input().split())

@@ -26,3 +26,23 @@ num, div = map(int, input().strip().split())
 binary = bin(num)[2:]
 length = len(binary)
 print(sum([1 if(int(binary[:i+1],2) % div == 0) else 0 for i in range(length)]))
+
+'''
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+      Scanner sc = new Scanner(System.in);
+      int N = sc.nextInt();
+      int X = sc.nextInt();
+      int count = 0;
+      while(N != 0){
+        if(N % X == 0){
+          count++;
+        }
+        N >>= 1;
+      }
+      System.out.print(count);
+  }
+}
+'''

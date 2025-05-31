@@ -1,7 +1,7 @@
 
 # SKILLRACK DT AND DC
 
-
+### if the question is not available check out [SKIILRACK-DC-DT-SS](https://github.com/ashwinn-si/Skillrack-DC-DT-SS)
 
 
 ## ABOUT

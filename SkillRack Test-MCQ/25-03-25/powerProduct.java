@@ -12,6 +12,7 @@
  * 
  * Input
  * 36 3
+ * 3 6 1
  * 
  * Output
  * yes

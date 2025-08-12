@@ -105,3 +105,78 @@ public class Main {
     System.out.println(dfsTerminationFlag ? "yes" : "no");
   }
 }
+
+// IMP BFS SOLUTION
+// import java.util.Scanner;
+// import java.util.*;
+
+// public class Main {
+// static int R, C;
+// static boolean bfsTerminationFlag = false;
+// static int[][] offsets = new int[][] { { 0, 1 }, { 0, -1 }, { 1, 0 }, { -1, 0
+// } };
+// static boolean visited[][];
+
+// static boolean isValid(int currR, int currC) {
+// return currR >= 0 && currR < R && currC >= 0 && currC < C;
+// }
+
+// public static void main(String[] args) {
+// Scanner sc = new Scanner(System.in);
+// R = sc.nextInt();
+// C = sc.nextInt();
+// visited = new boolean[R][C];
+// sc.nextLine();
+// int matrix[][] = new int[R][C];
+// int sourceR = -1, sourceC = -1, targetR = -1, targetC = -1;
+// for (int r = 0; r < R; r++) {
+// for (int c = 0; c < C; c++) {
+// String val = sc.next();
+// if (val.equals("B")) {
+// sourceR = r;
+// sourceC = c;
+// matrix[r][c] = 0;
+// } else if (val.equals("W")) {
+// targetR = r;
+// targetC = c;
+// matrix[r][c] = 0;
+// } else {
+// matrix[r][c] = Integer.parseInt(val);
+// }
+// }
+// }
+// int availablePower = sc.nextInt();
+// Queue<Coor> pq = new LinkedList<>();
+// pq.offer(new Coor(sourceR, sourceC, availablePower));
+// visited[sourceR][sourceC] = true;
+
+// while (!pq.isEmpty()) {
+// Coor currCoor = pq.poll();
+// if (currCoor.row == targetR && currCoor.col == targetC) {
+// bfsTerminationFlag = true;
+// break;
+// }
+// for (int index = 0; index < 4; index++) {
+// int newR = currCoor.row + offsets[index][0];
+// int newC = currCoor.col + offsets[index][1];
+// if (isValid(newR, newC) && !visited[newR][newC] && currCoor.power -
+// matrix[newR][newC] >= 0) {
+// pq.offer(new Coor(newR, newC, currCoor.power - matrix[newR][newC]));
+// visited[newR][newC] = true;
+// }
+// }
+// }
+// System.out.println(bfsTerminationFlag ? "yes" : "no");
+
+// }
+// }
+
+// class Coor {
+// int row, col, power;
+
+// Coor(int row, int col, int power) {
+// this.row = row;
+// this.col = col;
+// this.power = power;
+// }
+// }

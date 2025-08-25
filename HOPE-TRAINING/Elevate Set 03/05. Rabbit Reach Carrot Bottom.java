@@ -1,3 +1,19 @@
+
+/*
+ In a grid of size R*C, a rabbit(R) has to reach the carrot(C). The rabbit can move to the right or bottom. The
+program must print if the rabbit can reach the carrot. 1 indicates a path is available in that cell and O indicates
+that a path is not available through that cell.
+
+Input:
+3 4
+1 0 0 0
+R 1 1 0
+0 1 1 C
+
+Output:
+yes
+ */
+
 import java.util.*;
 
 public class Hello {

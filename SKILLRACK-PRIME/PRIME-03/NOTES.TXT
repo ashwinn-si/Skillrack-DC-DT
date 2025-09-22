@@ -1,0 +1,3 @@
+05. Vendor Maximum Profit
+
+In this sum we are finding the max profit that can be generated upto amount not excally amount, so only we are calcualting max at each step

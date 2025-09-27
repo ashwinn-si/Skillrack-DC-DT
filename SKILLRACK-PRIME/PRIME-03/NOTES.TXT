@@ -1,3 +1,7 @@
 05. Vendor Maximum Profit
 
 In this sum we are finding the max profit that can be generated upto amount not excally amount, so only we are calcualting max at each step
+
+
+09. Browsing Center
+https://www.youtube.com/watch?v=y1tyNq0eKaw

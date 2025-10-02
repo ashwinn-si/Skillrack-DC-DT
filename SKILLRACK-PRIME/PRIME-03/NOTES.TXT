@@ -5,3 +5,11 @@ In this sum we are finding the max profit that can be generated upto amount not 
 
 09. Browsing Center
 https://www.youtube.com/watch?v=y1tyNq0eKaw
+
+15. MinimumJumpsEnd
+https://www.youtube.com/watch?v=JUH4Ayb373g
+https://www.youtube.com/watch?v=Yhxzu9S75Bw
+
+16. longest Palindrome [base case check]
+https://www.youtube.com/watch?v=ASy6lrQm0C8
+https://www.youtube.com/watch?v=tMCQB5r2swY

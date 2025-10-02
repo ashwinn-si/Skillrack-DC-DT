@@ -1,0 +1,13 @@
+1. First, we handle substrings of length 1 (d = 0).
+Every single character is a palindrome, so dp[i][i] = 1 for all i.
+
+2. Next, we handle substrings of length 2 (d = 1).
+A two-character substring is a palindrome if both characters are the same.
+For example:
+
+In "abba", the substring "bb" is a palindrome, but "ab" and "ba" are not.
+This is why we need a special check for d == 1: we cannot look inside because there is no "inner substring". We just check the two characters.
+
+3. For substrings of length 3 or more (d >= 2), we check two conditions:
+The first and last characters must be the same.
+The inside substring (from i+1 to j-1) must also be a palindrome. This is exactly dp[i+1][j-1].

@@ -1,0 +1,117 @@
+Student(Stu_id, Stu_name, Dept_id)
+Department(Dept_id,Dept_name)
+Mark(Stu_id, Subject, Mark)
+
+1) Retrieve the names of students along with their department names, but only for those
+  departments that have more than one student
+
+select stu.stu_name, dep.dept_name from Student stu join Department dep on dep.Dept_id = stu.Dept_id where stu.Dept_id IN (select Dept_id from Student group by Dept_id having count(stu_id) > 1);
+
+-------------------------------------------------------------------
+
+Student(Stu_id, Stu_name, Dept _id)
+Department(Dept_id,Dept_name)
+Mark(Stu_id, Subject, Mark)
+
+2) Retrieve the names of students, their department names, and the total marks obtained
+by each student across all subjects.
+
+select stu.stu_name, dep.dept_name, sum(ma.Mark) from Student stu join Department dep on dep.Dept_id = stu.Dept_id join Mark ma on stu.Stu_id = ma.S
+tu_id group by ma.Stu_id;
+
+---------------------------------------------------------------------
+Student(Stu_id, Stu_Lname)
+Enrolment(Stu_id, Course)
+Course(Course, Instructor)
+
+3) Retrieve the names of students and the instruct but only for students who are enrolled in at least 1
+
+select stu.Stu_name, crs.Instructor from Student stu join Enrolment enr on stu.Stu_id = enr.Stu_id join Course crs on crs.Course = enr.Course;
+
+---------------------------------------------------------------------
+
+Student(Stu_id, Stu_name)
+Marks(Stu_id, Subject, Mark)
+
+4) Retrieve the names of students along with their total marks obtian on all the subjects
+
+select stu.Stu_name, sum(ma.Mark) from Student stu join Marks ma on stu.Stu_id = ma.Stu_id group by ma.Stu_id;
+
+---------------------------------------------------------------------
+
+Student(Stu_id, Stu_name, Dept_id)
+Department(Dept_id, id,Dept_name)
+Mark(Stu_id, Subject, Mark)
+
+5) Retrieve the names of students, their department name, and their marks - but only for those students who have marks grater then the average marks of their own department.
+
+SELECT stu.Stu_name, dep.Dept_name, SUM(ma.Mark) AS totalMark
+FROM Student stu
+JOIN Department dep ON stu.Dept_id = dep.Dept_id
+JOIN Mark ma ON stu.Stu_id = ma.Stu_id
+JOIN (
+    SELECT s2.Dept_id, AVG(m2.Mark) AS dept_avg
+    FROM Student s2
+    JOIN Mark m2 ON s2.Stu_id = m2.Stu_id
+    GROUP BY s2.Dept_id
+) AS davg ON davg.Dept_id = stu.Dept_id
+GROUP BY stu.Stu_id, stu.Stu_name, dep.Dept_name, davg.dept_avg
+HAVING SUM(ma.Mark) > davg.dept_avg;
+
+---------------------------------------------------------------------
+
+Student(Stu_id, Stu_name, Marks)
+
+6) Write a query to display names of students who scored more than the average mark using subquery 
+
+Student(Stu_id, Stu_name, Dept, Marks)
+
+select Stu_name from Student where Marks > (Select AVG(s2.Marks) from Student s2);
+
+---------------------------------------------------------------------
+Student(Stu_id, Stu_name, Dep, Marks)
+
+7) Write a query to find the average marks department-wise using
+clause
+
+ select Dep, avg(Marks) from Student group by Dep;
+
+
+---------------------------------------------------------------------
+
+Student(Stu_id, Stu_name, Dept, Marks)
+
+8) Write a query to list students who scored the highest marks in their department using
+subquery.
+
+select s1.Stu_name, s1.marks from Student s1 join (select s2.Dept, max(s2.Marks) as Marks from Student s2 group by s2.Dept) new on s1.Dept = new.Dept where s1.Marks = new.Marks;
+
+---------------------------------------------------------------------
+
+Student(Stu_id, Stu_name, Dept)
+
+9) Write a query to display students from departments, that have more no than one student using IN subquery.
+
+select s1.Stu_name from Student s1 where s1.Dept in (select Dept from Student group by Dept having count(stu_id) > 1);
+
+--------------------------------------------------------------------------
+
+Student(Stu_id, Name)
+Enrolement(Stu_id, Course)
+
+10) Write a query to display names of students who have enrolled in atleast on course using EXISTS
+
+SELECT s.Name
+FROM Student s
+WHERE EXISTS (
+    SELECT 1
+    FROM Enrolment e
+    WHERE e.Stu_id = s.Stu_id
+);
+--------------------------------------------------------------------------
+
+Student(Stu_id, Name, Marks)
+
+11) Write a query to display each student's mark and the difference from the average mark using a subquery in select
+
+select Name, (select AVG(Marks) from Student) - Marks from Student;

@@ -1,0 +1,97 @@
+Student(Stu_id, Stu_name, Dept_id)
+Department(Dept_id, Dept_name)
+
+Q: Retrieve student names and their department names. Include students who have no department assigned (show dept as NULL).
+
+select stu.Stu_name, dep.Dept_name from Student stu left join Department Dept on stu.Dept_id = dep.Dept_id;
+
+--------------------------------------------------------------
+
+//IMP
+Student(Stu_id, Stu_name)
+Marks(Stu_id, Subject, Mark)
+
+Q: List each student and their total marks across all subjects. Include students with no marks (show total as 0).
+
+select stu.Stu_name, COALESCE(SUM(ma.Mark), 0) AS Total_Marks from Student stu left join Marks ma on stu.Stu_id = ma.Stu_id group by stu.Stu_id, stu.Stu_name;
+
+--------------------------------------------------------------
+
+Student(Stu_id, Stu_name, Dept)
+Q: Find names of students who belong to the 'CSE' department.
+
+select Stu_name from Student where Dept = 'CSE';
+
+--------------------------------------------------------------
+
+Course(Course_id, Course_name)
+Enrolment(Stu_id, Course_id)
+
+Q: List course names and the number of students enrolled in each course. Show courses with zero enrollments 
+too.
+
+select co.Course_name, count(en.Stu_id) from Course co left join Enrolment en on co.Course_id = en.Course_id group by en.Course_id, co.Course_name;
+
+--------------------------------------------------------------
+
+Student(Stu_id, Stu_name, Marks)
+
+Q: Return names of students who scored above the class average (use a scalar subquery).
+
+select Stu_name from Student where Marks > (SELECT AVG(Marks) from Student);
+
+--------------------------------------------------------------
+
+//IMP SIMPLIY PANNIKALAM
+Student(Stu_id, Stu_name, Dept_id)
+Department(Dept_id, Dept_name)
+
+Q: Retrieve students and department names only for departments that have more than 3 students.
+
+SELECT 
+    s.Stu_name, 
+    d.Dept_name
+FROM 
+    Student s
+JOIN 
+    Department d ON s.Dept_id = d.Dept_id
+WHERE 
+    s.Dept_id IN (
+        SELECT 
+            Dept_id
+        FROM 
+            Student
+        GROUP BY 
+            Dept_id
+        HAVING 
+            COUNT(*) > 3
+    );
+
+--------------------------------------------------------------
+
+Student(Stu_id, Stu_name)
+Marks(Stu_id, Subject, Mark)
+
+Q: For each student, show the student name and their average mark. Order by average descending and show only top 5.
+
+select stu.Stu_name, AVG(ma.Mark) as avg_mark from Student stu join Marks ma on stu.Stu_id = ma.Stu_id group by stu.Stu_id, stu.Stu_name order by avg_mark DESC LIMIT 5;
+
+-------------------------------------------------------------
+
+Student(Stu_id, Stu_name)
+Enrolment(Stu_id, Course_id)
+Course(Course_id, Instructor)
+Q: Show student names and instructors for students enrolled in at least one course (use EXISTS).
+
+-------------------------------------------------------------
+
+Employee(Emp_id, Emp_name, Dept_id)
+Salary(Emp_id, Year, Amount)
+
+Q: List employees whose total salary over all years is greater than the average total salary across their department.
+
+-------------------------------------------------------------
+
+Student(Stu_id, Stu_name, Dept)
+Marks(Stu_id, Subject, Mark)
+Q: For each department, find the student(s) with the highest total marks (ties allowed).

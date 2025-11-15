@@ -1,4 +1,3 @@
-![alt text](<Screenshot 2025-11-13 at 11.12.44 AM.png>) ![alt text](<Screenshot 2025-11-13 at 11.23.45 AM.png>)
 # SKILLRACK DT AND DC
 
 ## ABOUT
@@ -12,3 +11,4 @@ I am not encouraging anyone to copy and paste the code directly. Instead, learn 
 ### If the question is not available check out [SKILLRACK-DC-DT-SS](https://github.com/ashwinn-si/Skillrack-DC-DT-SS)
 
 [CHECK-OUT-MY-PROFILE](https://www.skillrack.com/faces/resume.xhtml?id=447677&key=ashwin_sii)
+
